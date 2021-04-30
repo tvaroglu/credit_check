@@ -112,6 +112,6 @@ Write tests for your `CreditCard` class that cover that expected behavior descri
 
 * [x] Add functionality to calculate the check sum digit.
 
-* [ ] Create a command line interface that allows the user to validate a number
+* [x] Can you make it work for American Express numbers? 342804633855673 is valid but 342801633855673 is invalid
 
-* [ ] Can you make it work for American Express numbers? 342804633855673 is valid but 342801633855673 is invalid
+* [ ] Create a command line interface that allows the user to validate a number

@@ -9,25 +9,45 @@ class CreditCard
 
 # Your Luhn Algorithm Here
   def luhn_algorithm(card_number=self.card_number)
-    if card_number == nil || card_number == '' || card_number.to_i == 0
+    if card_number == '' || card_number.to_i == 0 || card_number == nil
       return "Error, please supply a valid card number to check"
     else
       check_arr = []
 
       iter_arr = card_number.to_s.split('')
-      iter_arr.each_with_index do |char, index|
-        if index % 2 == 0
-          if char.to_i * 2 > 9
-            digit_sum = (char.to_i * 2).to_s.split('').reduce(0) do |total, digit|
-              total.to_i + digit.to_i
-            end
-            check_arr << digit_sum
-          else
-            check_arr << char.to_i * 2
-          end
+      if iter_arr.length > 0 && iter_arr.length % 2 == 0
+        double_even_indexes = true
+      elsif iter_arr.length > 0 && iter_arr.length % 2 != 0
+        double_odd_indexes = true
+      end
 
-        else
-          check_arr << char.to_i
+      iter_arr.each_with_index do |char, index|
+        if double_even_indexes
+          if index % 2 == 0
+            if char.to_i * 2 > 9
+              digit_sum = (char.to_i * 2).to_s.split('').reduce(0) do |total, digit|
+                total.to_i + digit.to_i
+              end
+              check_arr << digit_sum
+            else
+              check_arr << char.to_i * 2
+            end
+          else
+            check_arr << char.to_i
+          end
+        elsif double_odd_indexes
+          if index % 2 != 0
+            if char.to_i * 2 > 9
+              digit_sum = (char.to_i * 2).to_s.split('').reduce(0) do |total, digit|
+                total.to_i + digit.to_i
+              end
+              check_arr << digit_sum
+            else
+              check_arr << char.to_i * 2
+            end
+          else
+            check_arr << char.to_i
+          end
         end
       end
 
@@ -96,5 +116,3 @@ end
 # puts '-' * 20
 # p cc.luhn_algorithm(342804633855673)
 # p cc.luhn_algorithm(342801633855673)
-# p cc.luhn_algorithm(7992739871)
-# p cc.luhn_algorithm(79927398713)
