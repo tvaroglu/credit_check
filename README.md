@@ -45,7 +45,7 @@ Since the summed results modulo 10 is zero, the account number is valid accordin
 1. Fork [this Repository](https://github.com/turingschool-examples/credit_check)
 1. Clone your forked repo to your machine with `git clone <ssh key for your repo>`
 
-### Iteration 1 - The Luhn Algorithm
+### [x] Iteration 1 - The Luhn Algorithm
 
 Open `credit_check.rb` in your `lib` directory. You should see this template:
 
@@ -68,7 +68,7 @@ If helpful, you can use the following sample data:
 * *Valid*: 5541808923795240, 4024007136512380, 6011797668867828
 * *Invalid*: 5541801923795240, 4024007106512380, 6011797668868728
 
-### Iteration 2 - Credit Card Class
+### [x] Iteration 2 - Credit Card Class
 
 Create a `CreditCard` class based on the following criteria:
 
@@ -79,11 +79,11 @@ Create a `CreditCard` class based on the following criteria:
 * A `CreditCard` has a method called `is_valid?` that takes no arguments and returns either true or false based on whether or not the card number is valid.
 * A `CreditCard` has a method called `last_four` that returns a String of the last four digits of the card number
 
-If the previous criteria are met, you should be able to interact with the `CreditCard` class from a Pry session like so:
+If the previous criteria are met, you should be able to interact with the `CreditCard` class from a Pry session like so (example session if initiated from `lib` or `test` dir):
 
 ```ruby
 
-pry(main)> require './lib/credit_card'
+pry(main)> require '../lib/credit_card'
 #=> true
 
 pry(main)> credit_card = CreditCard.new("5541808923795240", 15000)
@@ -104,14 +104,14 @@ pry(main)> credit_card.is_valid?
 
 Also, if the previous criteria are met, the `bank_test.rb` test should pass.
 
-### Iteration 3 - Testing
+### [x] Iteration 3 - Testing
 
 Write tests for your `CreditCard` class that cover that expected behavior described in the previous iteration.
 
-### Iteration 4 - Extensions
+### [ ] Iteration 4 - Extensions
 
-* Create a command line interface that allows the user to validate a number
+* [x] Add functionality to calculate the check sum digit.
 
-* Add functionality to calculate the check sum digit.
+* [ ] Create a command line interface that allows the user to validate a number
 
-* Can you make it work for American Express numbers? 342804633855673 is valid but 342801633855673 is invalid
+* [ ] Can you make it work for American Express numbers? 342804633855673 is valid but 342801633855673 is invalid
