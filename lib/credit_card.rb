@@ -35,12 +35,13 @@ class CreditCard
       check = check_arr.reduce(0) do |total, digit|
         total + digit
       end
+      check_digit = (check * 9) % 10
       ## If it is valid, print "The number [card number] is valid!"
       if check % 10 == 0
-        return "The number [#{card_number}] is valid!"
+        return "The number [#{card_number}] is valid! Checksum: [#{check}]; Checkdigit: [#{check_digit}]"
       ## If it is invalid, print "The number [card number] is invalid!"
       else
-        return "The number [#{card_number}] is invalid!"
+        return "The number [#{card_number}] is invalid! Checksum: [#{check}]; Checkdigit: [#{check_digit}]"
       end
 
     end
@@ -74,20 +75,26 @@ end
 #   :invalid_numbers => [5541801923795240, 4024007106512380, 6011797668868728]
 # }
 #
-# p additional_test_data[:valid_numbers].all? do |number|
-#   CreditCard.new(number).is_valid? == true
+# all_valid = additional_test_data[:valid_numbers].all? do |number|
+#   CreditCard.new(number).is_valid?
 # end
+# p all_valid
 #
-# p additional_test_data[:invalid_numbers].all? do |number|
-#   CreditCard.new(number).is_valid? == false
+# all_invalid = additional_test_data[:invalid_numbers].all? do |number|
+#   !CreditCard.new(number).is_valid?
 # end
+# p all_invalid
 #
 # puts '-' * 20
 # cc = CreditCard.new('4024007136512380', 15000)
 # p cc.card_number
 # p cc.limit
 # p cc.luhn_algorithm
-# p cc.luhn_algorithm(6011797668867828)
-# p cc.luhn_algorithm(4024007106512380)
 # p cc.is_valid?
 # p cc.last_four
+#
+# puts '-' * 20
+# p cc.luhn_algorithm(342804633855673)
+# p cc.luhn_algorithm(342801633855673)
+# p cc.luhn_algorithm(7992739871)
+# p cc.luhn_algorithm(79927398713)

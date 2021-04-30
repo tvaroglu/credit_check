@@ -45,7 +45,7 @@ Since the summed results modulo 10 is zero, the account number is valid accordin
 1. Fork [this Repository](https://github.com/turingschool-examples/credit_check)
 1. Clone your forked repo to your machine with `git clone <ssh key for your repo>`
 
-### [x] Iteration 1 - The Luhn Algorithm
+### Iteration 1 - The Luhn Algorithm
 
 Open `credit_check.rb` in your `lib` directory. You should see this template:
 
@@ -68,7 +68,7 @@ If helpful, you can use the following sample data:
 * *Valid*: 5541808923795240, 4024007136512380, 6011797668867828
 * *Invalid*: 5541801923795240, 4024007106512380, 6011797668868728
 
-### [x] Iteration 2 - Credit Card Class
+### Iteration 2 - Credit Card Class
 
 Create a `CreditCard` class based on the following criteria:
 
@@ -104,11 +104,11 @@ pry(main)> credit_card.is_valid?
 
 Also, if the previous criteria are met, the `bank_test.rb` test should pass.
 
-### [x] Iteration 3 - Testing
+### Iteration 3 - Testing
 
 Write tests for your `CreditCard` class that cover that expected behavior described in the previous iteration.
 
-### [ ] Iteration 4 - Extensions
+### Iteration 4 - Extensions
 
 * [x] Add functionality to calculate the check sum digit.
 
