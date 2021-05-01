@@ -114,4 +114,4 @@ Write tests for your `CreditCard` class that cover that expected behavior descri
 
 * [x] Can you make it work for American Express numbers? 342804633855673 is valid but 342801633855673 is invalid
 
-* [ ] Create a command line interface that allows the user to validate a number
+* [x] Create a command line interface that allows the user to validate a number

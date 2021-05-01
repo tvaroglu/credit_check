@@ -10,7 +10,7 @@ class CreditCard
 # Your Luhn Algorithm Here
   def luhn_algorithm(card_number=self.card_number)
     if card_number == '' || card_number.to_i == 0 || card_number == nil
-      return "Error, please supply a valid card number to check"
+      return "Error, please supply a valid card number to check."
     else
       check_arr = []
 
@@ -23,20 +23,11 @@ class CreditCard
 
       iter_arr.each_with_index do |char, index|
         if double_even_indexes
-          if index % 2 == 0
-            if char.to_i * 2 > 9
-              digit_sum = (char.to_i * 2).to_s.split('').reduce(0) do |total, digit|
-                total.to_i + digit.to_i
-              end
-              check_arr << digit_sum
-            else
-              check_arr << char.to_i * 2
-            end
-          else
-            check_arr << char.to_i
-          end
+          doubler = index % 2 == 0
         elsif double_odd_indexes
-          if index % 2 != 0
+          doubler = index % 2 != 0
+        end
+          if doubler
             if char.to_i * 2 > 9
               digit_sum = (char.to_i * 2).to_s.split('').reduce(0) do |total, digit|
                 total.to_i + digit.to_i
@@ -48,7 +39,6 @@ class CreditCard
           else
             check_arr << char.to_i
           end
-        end
       end
 
       # Output
